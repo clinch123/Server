@@ -1,5 +1,5 @@
 # SERVER
-VMS
+Im starting out with the whole CI/CD thing. So if you see something I could do better or have any suggestions hit me up!
 
 
 # Docker
