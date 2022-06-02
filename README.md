@@ -2,31 +2,52 @@
 Im starting out with the whole CI/CD thing. So if you see something I could do better or have any suggestions hit me up!
 
 
-# Docker
-
 ## CI/CD
+
+## Home Automation
+- homeAutomation
+- HomeBridge
 
 ## INDEXER
 - Sonarr
 - Radarr
 - Lidarr
+- Jackett
 
 ## Management
-
+- Zerotier
+- Portainer
+- Authelia
+- Cloudflare DNS Update
+- phpMyAdmin
+- AdGuard
+- Watchtower
+- Vagrant
+- Organizr
 
 ## MediaPlayer
 - Emby
 - (Find a Spotify Thing)
 
 ## Monitoring
+- OpenNMS
+- Grafana
+- Scrutiny
 
 ## Downloader
-- NzbGet
+- SabNZB
+- Transmission
 
 ## SQL
-PostGreSQL
-MariaDB
+- PostGreSQL
+- MariaDB
+- MySQL
 
-## Template
+## User Front End
+- Obmi
+- Heimdall
 
 ## Storage
+- Nextcloud
+- Davos
+- Paperless-NG
