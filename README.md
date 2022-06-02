@@ -12,6 +12,7 @@ Im starting out with the whole CI/CD thing. So if you see something I could do b
 - Sonarr
 - Radarr
 - Lidarr
+- Bazarr
 - Jackett
 
 ## Management
@@ -24,6 +25,11 @@ Im starting out with the whole CI/CD thing. So if you see something I could do b
 - Watchtower
 - Vagrant
 - Organizr
+- Guacamole
+- HealthChecks
+- LDAPAuth
+- NetBox
+- Remmina
 
 ## MediaPlayer
 - Emby
@@ -33,6 +39,8 @@ Im starting out with the whole CI/CD thing. So if you see something I could do b
 - OpenNMS
 - Grafana
 - Scrutiny
+- EmbyStat
+- Snipe-it
 
 ## Downloader
 - SabNZB
@@ -46,8 +54,12 @@ Im starting out with the whole CI/CD thing. So if you see something I could do b
 ## User Front End
 - Obmi
 - Heimdall
+- Babybuddy
+- EmulatorJS
 
 ## Storage
 - Nextcloud
 - Davos
 - Paperless-NG
+- GdriveMount
+- DonMelton Transcoding
