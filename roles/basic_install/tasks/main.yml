@@ -57,6 +57,7 @@
     path: /etc/ssh/sshd_config
     search_string: {{ item.search_string }}
     line: {{ item.line }}
+    create: yes
   with_items: '{{ ssh_config_changes }}'
 
 - name: SSH | Copy Pub SSH Key to known_hosts
@@ -79,6 +80,8 @@
 
 - name: MONITORING | Configure SNMP
   lineinfile:
-
-- name: DNS | Set Domain Name
-- name: DNS | Set DNS Server(s)
+    path: /etc/snmp/snmpd.conf
+    search_string: {{ item.search_string }}
+    line: {{ item.line }}
+    create: yes
+  with_items: '{{ snmp_configurations }}'
