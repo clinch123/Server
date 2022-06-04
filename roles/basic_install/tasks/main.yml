@@ -1,0 +1,63 @@
+---
+- name: APPS | Update and Upgrade System
+  apt:
+    upgrade: yes
+    update_cache: yes
+
+- name: APPS | Install Apps
+  apt:
+    name: {{ item }}
+    state: latest
+  loop:
+    - cockpit
+    - nano
+
+- name: APPS | Enable Cockpit Service
+  systemd:
+    name: cockpit
+    state: started
+    enabled: yes
+
+- name: GIT | Create SSH git location
+  git:
+    repo: https://{{ git_user }}:{{ git_token }}@github.com/clinch123/SSH.git
+    dest: "/opt/git/ssh"
+    update: yes
+
+- name: GIT | Remove Creds for Git URL
+  command:
+    cmd: git remote set-url origin https://github.com/clinch123/SSH.git
+    chdir: "/opt/git/ssh"
+
+- name: SSH | Generate SSH Key
+  openssh_keypair:
+    path: "~/.ssh/rsa_{{ ansible_hostname }}"
+    type: rsa
+    owner: {{ ssh_user }}
+    group: {{ ssh_group }}
+    size: 2048
+    state: present
+
+- name: SSH | Fix Pub SSH Key
+  file:
+    path: /home/{{ ssh_user }}/.ssh/rsa_{{ ansible_hostname }}.pub
+    owner: {{ ssh_user }}
+    group: {{ ssh_group }}
+
+- name: SSH | Config Changes
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    search_string: {{ item.search_string }}
+    line: {{ item.line }}
+  with_items: '{{ ssh_config_changes }}'
+
+- name: SSH | Copy Pub SSH Key to known_hosts
+  shell: echo "{{ lookup('file', rsa_{{ ansible_hostname }}.pub) }}" >> /home/{{ ssh_user }}/.ssh/known_hosts
+
+- name: SSH | Export Public Key to Ansible (Vault Encrypted)
+- name: SSH | Disable SSH Forwarding
+- name: SSH | Copy SSH Public Keys
+- name: NTP | Setup NTP Server
+- name: MONITORING | Enable SNMP
+- name: DNS | Set Domain Name
+- name: DNS | Set DNS Server(s)
