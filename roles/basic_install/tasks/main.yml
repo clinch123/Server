@@ -11,6 +11,9 @@
   loop:
     - cockpit
     - nano
+    - ntpdate
+    - snmpd
+    - snmp
 
 - name: APPS | Enable Cockpit Service
   systemd:
@@ -18,16 +21,18 @@
     state: started
     enabled: yes
 
-- name: GIT | Create SSH git location
+- name: SSH | Create SSH git location
   git:
     repo: https://{{ git_user }}:{{ git_token }}@github.com/clinch123/SSH.git
-    dest: "/opt/git/ssh"
+    dest: "{{ ssh_git_location }}"
     update: yes
+    single_branch: yes
+    version: main
 
-- name: GIT | Remove Creds for Git URL
+- name: SSH | Remove Creds for Git URL
   command:
     cmd: git remote set-url origin https://github.com/clinch123/SSH.git
-    chdir: "/opt/git/ssh"
+    chdir: "{{ ssh_git_location }}"
 
 - name: SSH | Generate SSH Key
   openssh_keypair:
@@ -44,6 +49,9 @@
     owner: {{ ssh_user }}
     group: {{ ssh_group }}
 
+- name: SSH | Add SSH Key to GitHub
+  shell: curl -u "{{git_user}}:{{git_token}}" --data "{\"title\": \"TITLE\", \"key\": \"$(cat ~/.ssh/rsa_{{ ansible_hostname }}.pub)\"}" https://api.github.com/user/keys
+
 - name: SSH | Config Changes
   lineinfile:
     path: /etc/ssh/sshd_config
@@ -52,12 +60,25 @@
   with_items: '{{ ssh_config_changes }}'
 
 - name: SSH | Copy Pub SSH Key to known_hosts
-  shell: echo "{{ lookup('file', rsa_{{ ansible_hostname }}.pub) }}" >> /home/{{ ssh_user }}/.ssh/known_hosts
+  shell: echo "{{ lookup('file', rsa_{{ ansible_hostname }}.pub) }}" >> {{ ssh_git_location }}/known_hosts
 
-- name: SSH | Export Public Key to Ansible (Vault Encrypted)
-- name: SSH | Disable SSH Forwarding
-- name: SSH | Copy SSH Public Keys
-- name: NTP | Setup NTP Server
-- name: MONITORING | Enable SNMP
+- name: SSH | Update Known Hosts on Git -- Add
+  shell: "git add *"
+  args:
+    chdir: {{ ssh_git_location }}
+
+- name: SSH | Update Known Hosts on Git -- Commit
+  shell: git commit -m "Ansible Known Hosts Update"
+  args:
+    chdir: {{ ssh_git_location }}
+
+- name: SSH | Update Known Hosts on Git -- Commit
+  shell: git push
+  args:
+    chdir: {{ ssh_git_location }}
+
+- name: MONITORING | Configure SNMP
+  lineinfile:
+
 - name: DNS | Set Domain Name
 - name: DNS | Set DNS Server(s)

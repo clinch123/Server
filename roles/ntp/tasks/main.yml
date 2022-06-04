@@ -1,0 +1,25 @@
+---
+- name: NTP | Install NTP Server
+  apt:
+    name: ntp
+    state: latest
+    update_cache: yes
+
+- name: NTP | Delete Existing Pools
+  lineinfile:
+    path: /etc/ntp.conf
+    state: absent
+    regexp: '\d*\.[a-zA-Z]*.pool.ntp'
+
+- name: NTP | Add Pools
+  lineinfile:
+    path: /etc/ntp.conf
+    create: yes
+    line: {{ item }}
+  with_items: {{ ntp_pools }}
+
+- name: Restart NTP Server
+  systemd:
+    name: ntp
+    state: started
+    enabled: yes

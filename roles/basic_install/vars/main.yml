@@ -32,3 +32,18 @@ ssh_config_changes:
     line: UserKnownHostsFile /opt/git/ssh/known_hosts
 
 ssh_git_location: /opt/git/ssh
+
+
+snmp_configurations:
+  - name: System Location
+    search_string: syslocation
+    line: syslocation Lynch House - {{ server_location }}
+    create: yes
+  - name: System Contact
+    search_string: sysContact
+    line: sysContact Chris Lynch <cpl2lynch@gmail.com>
+    create: yes
+  - name: Create SNMP User
+    search_string: createUser
+    line: createUser {{ git_user }} SHA {{ git_token }} AES {{ git_token }}
+    create: yes
