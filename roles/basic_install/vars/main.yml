@@ -23,6 +23,8 @@ vault_password: !vault |
           3833313361666537390a373036326231303066363234323465653537393635343934353366343935
           36643832336561373538656166653366383862653734343530386637613664333063
 
+ssh_user: clynch
+ssh_group: clynch
 ssh_config_changes:
   - name: PermitRootLogin
     search_string: 'PermitRootLogin'
