@@ -6,7 +6,7 @@
 
 - name: APPS | Install Apps
   apt:
-    name: {{ item }}
+    name: "{{ item }}"
     state: latest
   loop:
     - cockpit
@@ -38,16 +38,16 @@
   openssh_keypair:
     path: "~/.ssh/rsa_{{ ansible_hostname }}"
     type: rsa
-    owner: {{ ssh_user }}
-    group: {{ ssh_group }}
+    owner: "{{ ssh_user }}"
+    group: "{{ ssh_group }}"
     size: 2048
     state: present
 
 - name: SSH | Fix Pub SSH Key
   file:
     path: /home/{{ ssh_user }}/.ssh/rsa_{{ ansible_hostname }}.pub
-    owner: {{ ssh_user }}
-    group: {{ ssh_group }}
+    owner: "{{ ssh_user }}"
+    group: "{{ ssh_group }}"
 
 - name: SSH | Add SSH Key to GitHub
   shell: 'curl -u "{{git_user}}:{{git_token}}" --data "{\"title\": \"TITLE\", \"key\": \"$(cat ~/.ssh/rsa_{{ ansible_hostname }}.pub)\"}" https://api.github.com/user/keys'
@@ -55,8 +55,8 @@
 - name: SSH | Config Changes
   lineinfile:
     path: /etc/ssh/sshd_config
-    search_string: {{ item.search_string }}
-    line: {{ item.line }}
+    search_string: {{ item.search_string }}"
+    line: "{{ item.line }}"
     create: yes
   with_items: '{{ ssh_config_changes }}'
 
@@ -66,22 +66,22 @@
 - name: SSH | Update Known Hosts on Git -- Add
   shell: "git add *"
   args:
-    chdir: {{ ssh_git_location }}
+    chdir: "{{ ssh_git_location }}"
 
 - name: SSH | Update Known Hosts on Git -- Commit
   shell: git commit -m "Ansible Known Hosts Update"
   args:
-    chdir: {{ ssh_git_location }}
+    chdir: "{{ ssh_git_location }}"
 
 - name: SSH | Update Known Hosts on Git -- Commit
   shell: git push
   args:
-    chdir: {{ ssh_git_location }}
+    chdir: "{{ ssh_git_location }}"
 
 - name: MONITORING | Configure SNMP
   lineinfile:
     path: /etc/snmp/snmpd.conf
-    search_string: {{ item.search_string }}
-    line: {{ item.line }}
+    search_string: "{{ item.search_string }}"
+    line: "{{ item.line }}"
     create: yes
   with_items: '{{ snmp_configurations }}'
