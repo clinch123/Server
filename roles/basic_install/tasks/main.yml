@@ -29,6 +29,7 @@
     key_file: "{{ ssh_git_key_file }}"
     update: yes
     clone: yes
+    version: main
 
 - name: SSH | Remove Creds for Git URL
   command:
