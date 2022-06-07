@@ -26,6 +26,7 @@
     repo: ssh://git@github.com/clinch123/SSH.git
     dest: "{{ ssh_git_location }}"
     update: yes
+    clone: yes
 
 - name: SSH | Remove Creds for Git URL
   command:
