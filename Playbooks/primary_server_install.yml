@@ -9,14 +9,14 @@
     include_role:
       name: basic_install
 
-  - name: Install Containerization
-    include_role:
-      name: virtualization
+#  - name: Install Containerization
+#    include_role:
+#      name: virtualization
 
-  - name: Install Ansible
-    include_role:
-      name: automation
+#  - name: Install Ansible
+#    include_role:
+#      name: automation
 
-  - name: Install Containers
-    include_role:
-      name: primary_server
+#  - name: Install Containers
+#    include_role:
+#      name: primary_server
