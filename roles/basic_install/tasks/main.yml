@@ -50,7 +50,7 @@
     group: {{ ssh_group }}
 
 - name: SSH | Add SSH Key to GitHub
-  shell: curl -u "{{git_user}}:{{git_token}}" --data "{\"title\": \"TITLE\", \"key\": \"$(cat ~/.ssh/rsa_{{ ansible_hostname }}.pub)\"}" https://api.github.com/user/keys
+  shell: 'curl -u "{{git_user}}:{{git_token}}" --data "{\"title\": \"TITLE\", \"key\": \"$(cat ~/.ssh/rsa_{{ ansible_hostname }}.pub)\"}" https://api.github.com/user/keys'
 
 - name: SSH | Config Changes
   lineinfile:
