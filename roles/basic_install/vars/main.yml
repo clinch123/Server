@@ -36,7 +36,7 @@ ssh_config_changes:
 ssh_git_location: /opt/git/ssh
 ssh_git_key_file: /home/clynch/.ssh/id_rsa
 
-
+server_location: "Classified"
 snmp_configurations:
   - name: System Location
     search_string: syslocation

@@ -84,6 +84,7 @@
     chdir: "{{ ssh_git_location }}"
 
 - name: SSH | Update Known Hosts on Git -- Commit
+  become: false
   shell: git push
   args:
     chdir: "{{ ssh_git_location }}"
