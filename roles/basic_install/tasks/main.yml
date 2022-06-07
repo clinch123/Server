@@ -38,7 +38,7 @@
 
 - name: SSH | Generate SSH Key
   openssh_keypair:
-    path: "~/.ssh/rsa_{{ ansible_hostname }}"
+    path: "/home/{{ ssh_user }}/.ssh/rsa_{{ ansible_hostname }}"
     type: rsa
     owner: "{{ ssh_user }}"
     group: "{{ ssh_group }}"
