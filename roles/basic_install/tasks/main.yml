@@ -23,7 +23,7 @@
 
 - name: SSH | Create SSH git location
   git:
-    repo: https://{{ git_user }}:{{ git_token }}@github.com/clinch123/SSH.git
+    repo: ssh://git@github.com/clinch123/SSH.git
     dest: "{{ ssh_git_location }}"
     update: yes
     version: main
