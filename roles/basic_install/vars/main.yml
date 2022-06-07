@@ -50,3 +50,9 @@ snmp_configurations:
     search_string: createUser
     line: createUser {{ git_user }} SHA {{ git_token }} AES {{ git_token }}
     create: yes
+
+git_config:
+  - config_item: user.email
+    config_value: cpl2lynch@gmail.com
+  - config_item: user.name
+    config_value: Chris Lynch
