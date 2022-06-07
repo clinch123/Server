@@ -26,7 +26,6 @@
     repo: https://{{ git_user }}:{{ git_token }}@github.com/clinch123/SSH.git
     dest: "{{ ssh_git_location }}"
     update: yes
-    single_branch: yes
     version: main
 
 - name: SSH | Remove Creds for Git URL
