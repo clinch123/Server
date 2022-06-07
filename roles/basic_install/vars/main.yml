@@ -39,8 +39,8 @@ ssh_git_key_file: /home/clynch/.ssh/id_rsa
 server_location: "Classified"
 snmp_configurations:
   - name: System Location
-    regexp: syslocation
-    line: syslocation Lynch House - {{ server_location }}
+    regexp: sysLocation
+    line: sysLocation Lynch House - {{ server_location }}
     create: yes
   - name: System Contact
     regexp: sysContact
