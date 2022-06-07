@@ -63,7 +63,7 @@
   with_items: '{{ ssh_config_changes }}'
 
 - name: SSH | Copy Pub SSH Key to known_hosts
-  shell: echo "{{ lookup('file', rsa_{{ ansible_hostname }}.pub) }}" >> {{ ssh_git_location }}/known_hosts
+  shell: echo /home/{{ ssh_user }}/.ssh/rsa_{{ ansible_hostname }}.pub >> {{ ssh_git_location }}/known_hosts
 
 - name: SSH | Update Known Hosts on Git -- Add
   shell: "git add *"
