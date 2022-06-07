@@ -57,7 +57,7 @@
 - name: SSH | Config Changes
   lineinfile:
     path: /etc/ssh/sshd_config
-    search_string: "{{ item.search_string }}"
+    regexp: "{{ item.regexp }}"
     line: "{{ item.line }}"
     create: yes
   with_items: '{{ ssh_config_changes }}'
