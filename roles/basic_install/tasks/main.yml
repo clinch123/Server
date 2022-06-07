@@ -28,6 +28,7 @@
     dest: "{{ ssh_git_location }}"
     key_file: "{{ ssh_git_key_file }}"
     update: yes
+    ignore_errors: true
     clone: yes
 
 - name: SSH | Remove Creds for Git URL
