@@ -92,7 +92,7 @@
 - name: MONITORING | Configure SNMP
   lineinfile:
     path: /etc/snmp/snmpd.conf
-    search_string: "{{ item.search_string }}"
+    regexp: "{{ item.regexp }}"
     line: "{{ item.line }}"
     create: yes
   with_items: '{{ snmp_configurations }}'

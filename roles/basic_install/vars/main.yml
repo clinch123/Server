@@ -39,15 +39,15 @@ ssh_git_key_file: /home/clynch/.ssh/id_rsa
 server_location: "Classified"
 snmp_configurations:
   - name: System Location
-    search_string: syslocation
+    regexp: syslocation
     line: syslocation Lynch House - {{ server_location }}
     create: yes
   - name: System Contact
-    search_string: sysContact
+    regexp: sysContact
     line: sysContact Chris Lynch <cpl2lynch@gmail.com>
     create: yes
   - name: Create SNMP User
-    search_string: createUser
+    regexp: createUser
     line: createUser {{ git_user }} SHA {{ git_token }} AES {{ git_token }}
     create: yes
 
