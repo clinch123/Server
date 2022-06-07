@@ -32,6 +32,7 @@ ssh_config_changes:
     line: UserKnownHostsFile /opt/git/ssh/known_hosts
 
 ssh_git_location: /opt/git/ssh
+ssh_git_key_file: /home/clynch/.ssh/id_rsa
 
 
 snmp_configurations:
