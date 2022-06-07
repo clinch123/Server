@@ -1,0 +1,2 @@
+---
+- src: ssh://git@github.com:clinch123/basic_install_role.git
