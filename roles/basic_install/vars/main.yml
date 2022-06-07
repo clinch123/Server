@@ -27,10 +27,10 @@ ssh_user: clynch
 ssh_group: clynch
 ssh_config_changes:
   - name: PermitRootLogin
-    search_string: 'PermitRootLogin'
+    regexp: 'PermitRootLogin'
     line: PermitRootLogin no
   - name: KnownHostsLocation
-    search_string: 'UserKnownHostsFile'
+    regexp: 'UserKnownHostsFile'
     line: UserKnownHostsFile /opt/git/ssh/known_hosts
 
 ssh_git_location: /opt/git/ssh
