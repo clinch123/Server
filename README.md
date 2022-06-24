@@ -23,7 +23,7 @@ Im starting out with the whole CI/CD thing. So if you see something I could do b
 - Zerotier : 9993
 - OpenVPN : 1194
 
-## Network Services : MACVLAN
+## Network Services : Bridge:Services
 - DNS Server (PiHole)
 - NetBox
 - Authelia
