@@ -28,6 +28,7 @@ Im starting out with the whole CI/CD thing. So if you see something I could do b
 - NetBox
 - Authelia
 - Redis
+- NginxProxyManager : 7818/1880/18443
 
 ## Management
 - Portainer : 9000
