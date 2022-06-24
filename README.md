@@ -9,7 +9,7 @@ Im starting out with the whole CI/CD thing. So if you see something I could do b
 
 ## CI/CD
 
-## Home Automation : Bridge:Internal
+## Home Automation
 - homeAssistant : 8123
 
 ## INDEXER : Bridge:DMZ
@@ -23,46 +23,47 @@ Im starting out with the whole CI/CD thing. So if you see something I could do b
 - Zerotier : 9993
 - OpenVPN : 1194
 
-## Network Services : Bridge:Services
+## Network Services
 - DNS Server (PiHole)
 - NetBox
 - Authelia
 - Redis
 
-## Management : Bridge:Internal
+## Management
 - Portainer : 9000
 - Authelia : 9091
 - Cloudflare DNS Update (Custom)
-- phpMyAdmin (Host) : 3306
+- phpMyAdmin (Host) : 3308
 - Watchtower (All Networks)
 - Organizr : 8080
 - Guacamole : 8081
 - HealthChecks : 8000
 - LDAPAuth : 8888/9001
 
-## MediaPlayer : Bridge:DMZ
+## MediaPlayer
 - Jellyfin : 8096/8920/7359/1900
 
-## Monitoring : Bridge:Internal
+## Monitoring
 - OpenNMS : 8980/61616/8101
 - Grafana : 3000
 - Snipe-it : 9002
 
-## Downloader : Bridge:DMZ
+## Downloader
 - SabNZBVPN : 8082/8090/8118
 - Transmission : 9091 (In SabNZBVPN)
 
-## SQL : Bridge: SQL
+## SQL
 - PostGreSQL :5432
 - MySQL : 3307
+- MariaDB : 3306
 
-## User Front End : Bridge:DMZ
+## User Front End
 - Obmi : 3579
 - Heimdall : 2080
 - EmulatorJS : 3001
 - NginxReverse Proxy : 443/80
 
-## Storage : Bridge:Internal
+## Storage
 - Nextcloud : 2443
 - Davos : 8083
 - Paperless-NG : 800
