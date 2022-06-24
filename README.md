@@ -33,7 +33,7 @@ Im starting out with the whole CI/CD thing. So if you see something I could do b
 - Portainer : 9000
 - Authelia : 9091
 - Cloudflare DNS Update (Custom)
-- phpMyAdmin (Host) : 3308
+- phpMyAdmin (Host) : 8084
 - Watchtower (All Networks)
 - Organizr : 8080
 - Guacamole : 8081
