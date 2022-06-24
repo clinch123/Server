@@ -3,68 +3,68 @@ Im starting out with the whole CI/CD thing. So if you see something I could do b
 
 
 ## HomeLab
-- EveNG
+- GNS3
 - Vagrant
-- KVM
+- KVM (Unraid)
 
 ## CI/CD
 
-## Home Automation
-- homeAutomation
-- HomeBridge
+## Home Automation : Bridge:Internal
+- homeAssistant : 8123
 
-## INDEXER
-- Sonarr
-- Radarr
-- Lidarr
-- Bazarr
-- Jackett
+## INDEXER : Bridge:DMZ
+- Sonarr : 8989
+- Radarr : 7676
+- Lidarr : 8787
+- Bazarr : 6767
+- Jackett : 9117
 
-## Management
-- Zerotier
-- Portainer
-- Authelia
-- Cloudflare DNS Update
-- phpMyAdmin
-- AdGuard
-- Watchtower
-- Vagrant
-- Organizr
-- Guacamole
-- HealthChecks
-- LDAPAuth
+## VPN : HOST
+- Zerotier : 9993
+- OpenVPN : 1194
+
+## Network Services : MACVLAN
+- DNS Server (PiHole)
 - NetBox
-- Remmina
+- Authelia
+- Redis
 
-## MediaPlayer
-- Emby
-- (Find a Spotify Thing)
+## Management : Bridge:Internal
+- Portainer : 9000
+- Authelia : 9091
+- Cloudflare DNS Update (Custom)
+- phpMyAdmin (Host) : 3306
+- Watchtower (All Networks)
+- Organizr : 8080
+- Guacamole : 8081
+- HealthChecks : 8000
+- LDAPAuth : 8888/9001
 
-## Monitoring
-- OpenNMS
-- Grafana
-- Scrutiny
-- EmbyStat
-- Snipe-it
+## MediaPlayer : Bridge:DMZ
+- Jellyfin : 8096/8920/7359/1900
 
-## Downloader
-- SabNZB
-- Transmission
+## Monitoring : Bridge:Internal
+- OpenNMS : 8980/61616/8101
+- Grafana : 3000
+- Snipe-it : 9002
 
-## SQL
-- PostGreSQL
-- MariaDB
-- MySQL
+## Downloader : Bridge:DMZ
+- SabNZBVPN : 8082/8090/8118
+- Transmission : 9091 (In SabNZBVPN)
 
-## User Front End
-- Obmi
-- Heimdall
-- Babybuddy
-- EmulatorJS
+## SQL : Bridge: SQL
+- PostGreSQL :5432
+- MySQL : 3307
 
-## Storage
-- Nextcloud
-- Davos
-- Paperless-NG
-- GdriveMount
+## User Front End : Bridge:DMZ
+- Obmi : 3579
+- Heimdall : 2080
+- EmulatorJS : 3001
+- NginxReverse Proxy : 443/80
+
+## Storage : Bridge:Internal
+- Nextcloud : 2443
+- Davos : 8083
+- Paperless-NG : 800
+- GdriveMount (On Unraid)
 - DonMelton Transcoding
